@@ -80,8 +80,19 @@ st.markdown(
     @import url('https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
 
     html, body, [class*="css"] {{ font-family: 'Inter', sans-serif; }}
-    .stApp {{ background: {BG}; }}
+    html {{ color-scheme: light !important; }}
+    .stApp {{ background: {BG} !important; }}
     *, *:focus, *:focus-visible, *:focus-within {{ outline: none !important; }}
+
+    /* ---- Paksa sidebar SELALU krem, gak peduli tema viewer/device ----
+       Ini yang kelewat sebelumnya -- sidebar gak pernah di-style eksplisit,
+       jadi dia ngikut warna default tema ambient (bisa gelap kalau viewer
+       pilih dark / device dark). Cuma target background container-nya,
+       gak nyentuh warna teks tombol (biar teks putih di tombol tetep aman). */
+    section[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] > div {{
+        background-color: {CARD} !important;
+    }}
 
     /* ---- Responsive viewport ---- */
     /* ---- Constrain main content width (desktop bisa lebar banget karena layout=wide + sidebar) ---- */
@@ -248,14 +259,16 @@ st.markdown(
     .stNumberInput button {{ display: none !important; border: 1px solid {INPUT_BORDER} !important; color: {INPUT_TEXT} !important; }}
 
     /* selectbox: kotak tertutup */
-    div[data-baseweb="select"] > div {{
+    div[data-baseweb="select"] > div,
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] div {{
         background: #FFFFFF !important; border: 1px solid {INPUT_BORDER} !important;
         border-radius: 12px !important; box-shadow: none !important;
     }}
     div[data-baseweb="select"]:focus-within > div {{
         border-color: {BUTTON} !important; box-shadow: 0 0 0 3px rgba(226,130,95,.15) !important;
     }}
-    div[data-baseweb="select"] > div * {{ color: {INPUT_TEXT} !important; opacity: 1 !important; }}
+    div[data-baseweb="select"] > div *,
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] * {{ color: {INPUT_TEXT} !important; opacity: 1 !important; }}
 
     /* selectbox: dropdown menu saat terbuka */
     div[data-baseweb="popover"],
@@ -380,7 +393,7 @@ def render_sidebar_nav():
     with st.sidebar:
         st.markdown(
             f'<div style="font-family:Sora,sans-serif; font-weight:800; font-size:1.1rem; '
-            f'letter-spacing:-0.02em; color:{TEXT_DARK}; margin-bottom:1.25rem;">'
+            f'letter-spacing:-0.02em; color:{TEXT_DARK} !important; margin-bottom:1.25rem;">'
             f'\u2695CARDIA</div>',
             unsafe_allow_html=True,
         )
