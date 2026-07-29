@@ -350,6 +350,15 @@ st.markdown(
     }}
     .result-bar-fill {{ height: 100%; border-radius: 999px; transition: width 0.6s ease; }}
     .result-narrative {{ font-size: 0.92rem; color: #5C5346; line-height: 1.6; max-width: 28rem; margin-top: 0.3rem; }}
+
+    .sidebar-brand{{
+    font-family:'Sora',sans-serif !important;
+    font-weight:800 !important;
+    font-size:1.1rem !important;
+    letter-spacing:-0.02em;
+    color:#241C14 !important;
+    margin-bottom:1.25rem;
+    }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -408,9 +417,11 @@ def render_back_button():
 def render_sidebar_nav():
     with st.sidebar:
         st.markdown(
-            f'<div style="font-family:Sora,sans-serif; font-weight:800; font-size:1.1rem; '
-            f'letter-spacing:-0.02em; color:{TEXT_DARK} !important; margin-bottom:1.25rem;">'
-            f'\u2695CARDIA</div>',
+            """
+            <div class="sidebar-brand">
+            ⚕ CARDIA
+            </div>
+            """,
             unsafe_allow_html=True,
         )
         nav_items = [("home", "Beranda"), ("edukasi", "Edukasi Penyakit Jantung"), ("prediksi", "Mesin Prediksi")]
