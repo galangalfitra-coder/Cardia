@@ -100,7 +100,7 @@ st.markdown(
     .stMainBlockContainer {{ max-width: 900px !important; margin: 0 auto !important; }}
 
     @media (max-width: 768px) {{
-      .stMainBlockContainer {{ max-width: 100% !important; padding: 0.5rem 0.85rem !important; }}
+      .stMainBlockContainer {{ max-width: 100% !important; padding: 0.5rem 0.85rem !important; padding-top: 3.5rem !important; }}
       .hero-title {{ font-size: 1.5rem !important; }}
       .hero-sub {{ font-size: 0.85rem !important; }}
       /* nav-card di Home: min-height + margin-top:auto itu cuma buat nyamain tinggi
