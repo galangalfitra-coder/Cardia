@@ -240,7 +240,8 @@ st.markdown(
     .edu-text {{ margin: 0.5; color: {TEXT_DARK}; line-height: 1.8; font-size: 0.92rem; text-align: justify; text-justify: inter-word; }}
 
     label {{ color: {TEXT_DARK} !important; opacity: 1 !important; font-weight: 600 !important; font-size: 0.88rem !important; }}
-
+    ::placeholder {{ color: {TEXT_MUTED} !important; opacity: 1 !important; }}
+    
     /* number input: reset wrapper bawaan lalu styling ulang input & tombol +/- */
     div[data-testid="stNumberInput"],
     div[data-testid="stNumberInput"] > div,
