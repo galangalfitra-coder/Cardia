@@ -90,7 +90,7 @@ st.markdown(
        jadi hampir putih (~#FAFAFA). Rule ini jadi fallback. */
     .stApp p, .stApp li, .stApp span, .stApp div,
     .stApp strong, .stApp b, .stApp em {{
-        color: #ffffff !important;
+        color: {TEXT_DARK} !important;
     }}
 
     /* ---- Paksa sidebar SELALU krem, gak peduli tema viewer/device ----
