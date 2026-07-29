@@ -83,15 +83,7 @@ st.markdown(
     html {{ color-scheme: light !important; }}
     .stApp {{ background: {BG} !important; }}
     *, *:focus, *:focus-visible, *:focus-within {{ outline: none !important; }}
-
-    /* ---- Jaring pengaman warna teks global ----
-       Elemen teks polos (p, strong, li, span, div) yang belum pernah
-       di-style eksplisit ikut warna ambient theme -- yang kadang nyangkut
-       jadi hampir putih (~#FAFAFA). Rule ini jadi fallback. */
-    .stApp p, .stApp li, .stApp span, .stApp div,
-    .stApp strong, .stApp b, .stApp em {{
-        color: {TEXT_DARK} !important;
-    }}
+    
 
     /* ---- Paksa sidebar SELALU krem, gak peduli tema viewer/device ----
        Ini yang kelewat sebelumnya -- sidebar gak pernah di-style eksplisit,
@@ -247,6 +239,7 @@ st.markdown(
     }}
     .edu-list {{ margin: 0.5; padding-left: 0.1rem; color: {TEXT_DARK}; line-height: 1.8; font-size: 0.92rem; }}
     .edu-text {{ margin: 0.5; color: {TEXT_DARK}; line-height: 1.8; font-size: 0.92rem; text-align: justify; text-justify: inter-word; }}
+    .edu-subheading {{ color: {TEXT_DARK} !important; font-weight: 700; margin: 0 0 0.4rem 0; }}
 
     label {{ color: {TEXT_DARK} !important; opacity: 1 !important; font-weight: 600 !important; font-size: 0.88rem !important; }}
     ::placeholder {{ color: {TEXT_MUTED} !important; opacity: 1 !important; }}
@@ -553,7 +546,7 @@ def render_edukasi():
         )
         c1, c2 = st.columns(2)
         with c1:
-            st.markdown("**Tidak dapat diubah**")
+            st.markdown('<p class="edu-subheading">Tidak dapat diubah</p>', unsafe_allow_html=True)
             st.markdown(
                 """<ul class="edu-list">
                 <li>Usia (risiko naik seiring bertambah usia)</li>
@@ -563,7 +556,7 @@ def render_edukasi():
                 unsafe_allow_html=True,
             )
         with c2:
-            st.markdown("**Dapat diubah**")
+            st.markdown('<p class="edu-subheading">Dapat diubah</p>', unsafe_allow_html=True)
             st.markdown(
                 """<ul class="edu-list">
                 <li>Tekanan darah tinggi (hipertensi)</li>
