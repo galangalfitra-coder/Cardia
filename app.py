@@ -258,17 +258,30 @@ st.markdown(
     }}
     .stNumberInput button {{ display: none !important; border: 1px solid {INPUT_BORDER} !important; color: {INPUT_TEXT} !important; }}
 
-    /* selectbox: kotak tertutup */
+    /* selectbox: kotak tertutup ----
+       Sebelumnya cuma nargetin 1-2 level kedalaman, ternyata warna gelapnya
+       nempel di level yang beda tergantung versi Streamlit. Sekarang paksa
+       SEMUA level (sampai 5 lapis) jadi putih, biar nggak ada celah lagi. */
+    div[data-testid="stSelectbox"],
+    div[data-testid="stSelectbox"] > div,
+    div[data-testid="stSelectbox"] > div > div,
+    div[data-testid="stSelectbox"] > div > div > div,
+    div[data-testid="stSelectbox"] > div > div > div > div,
+    div[data-testid="stSelectbox"] > div > div > div > div > div,
+    div[data-baseweb="select"],
     div[data-baseweb="select"] > div,
-    div[data-testid="stSelectbox"] div[data-baseweb="select"] div {{
-        background: #FFFFFF !important; border: 1px solid {INPUT_BORDER} !important;
+    div[data-baseweb="select"] div {{
+        background-color: #FFFFFF !important;
+    }}
+    div[data-testid="stSelectbox"] > div > div {{
+        border: 1px solid {INPUT_BORDER} !important;
         border-radius: 12px !important; box-shadow: none !important;
     }}
     div[data-baseweb="select"]:focus-within > div {{
         border-color: {BUTTON} !important; box-shadow: 0 0 0 3px rgba(226,130,95,.15) !important;
     }}
-    div[data-baseweb="select"] > div *,
-    div[data-testid="stSelectbox"] div[data-baseweb="select"] * {{ color: {INPUT_TEXT} !important; opacity: 1 !important; }}
+    div[data-testid="stSelectbox"] *,
+    div[data-baseweb="select"] * {{ color: {INPUT_TEXT} !important; opacity: 1 !important; }}
 
     /* selectbox: dropdown menu saat terbuka */
     div[data-baseweb="popover"],
