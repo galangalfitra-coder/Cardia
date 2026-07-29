@@ -84,14 +84,7 @@ st.markdown(
     .stApp {{ background: {BG} !important; }}
     *, *:focus, *:focus-visible, *:focus-within {{ outline: none !important; }}
 
-    /* ---- Jaring pengaman warna teks global ----
-       Elemen teks polos (p, strong, li, span, div) yang belum pernah
-       di-style eksplisit ikut warna ambient theme -- yang kadang nyangkut
-       jadi hampir putih (~#FAFAFA). Rule ini jadi fallback. */
-    .stApp p, .stApp li, .stApp span, .stApp div,
-    .stApp strong, .stApp b, .stApp em {{
-        color: {TEXT_DARK} !important;
-    }}
+    
 
     /* ---- Paksa sidebar SELALU krem, gak peduli tema viewer/device ----
        Ini yang kelewat sebelumnya -- sidebar gak pernah di-style eksplisit,
