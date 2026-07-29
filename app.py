@@ -259,15 +259,17 @@ st.markdown(
     .stNumberInput button {{ display: none !important; border: 1px solid {INPUT_BORDER} !important; color: {INPUT_TEXT} !important; }}
 
     /* selectbox: kotak tertutup ----
-       Sebelumnya cuma nargetin 1-2 level kedalaman, ternyata warna gelapnya
-       nempel di level yang beda tergantung versi Streamlit. Sekarang paksa
-       SEMUA level (sampai 5 lapis) jadi putih, biar nggak ada celah lagi. */
+       Wrapper paling luar (2 level pertama) dibikin TRANSPARAN -- itu cuma
+       pembungkus, kalau dipaksa putih dia jadi kotak siku-siku polos yang
+       nongol di belakang kotak bulat aslinya (efek "halo"). Yang beneran
+       dikasih putih+border cuma level ke-3 ke bawah (kotak inti). */
     div[data-testid="stSelectbox"],
-    div[data-testid="stSelectbox"] > div,
+    div[data-testid="stSelectbox"] > div {{
+        background-color: transparent !important;
+    }}
     div[data-testid="stSelectbox"] > div > div,
     div[data-testid="stSelectbox"] > div > div > div,
     div[data-testid="stSelectbox"] > div > div > div > div,
-    div[data-testid="stSelectbox"] > div > div > div > div > div,
     div[data-baseweb="select"],
     div[data-baseweb="select"] > div,
     div[data-baseweb="select"] div {{
