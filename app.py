@@ -91,6 +91,11 @@ st.markdown(
       .stMainBlockContainer {{ max-width: 100% !important; padding: 0.5rem 0.85rem !important; }}
       .hero-title {{ font-size: 1.5rem !important; }}
       .hero-sub {{ font-size: 0.85rem !important; }}
+      /* nav-card di Home: min-height + margin-top:auto itu cuma buat nyamain tinggi
+         2 kartu pas berdampingan (desktop). Di mobile kartu ke-stack vertikal, jadi
+         rule itu cuma bikin "lubang" kosong sebelum tombol -- dimatiin di sini. */
+      div[class*="st-key-navcard_"] {{ min-height: unset !important; }}
+      div[class*="st-key-navcard_"] .stButton {{ margin-top: 1rem !important; }}
     }}
 
     /* ---- Top brand bar ---- */
